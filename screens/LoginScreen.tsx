@@ -61,7 +61,7 @@ export default function(props: any){
     return (
         <View style={{width: "100%"}}>
             
-            <TouchableOpacity onPress={()=>{props.navigation.navigate("Home")}}>
+            <TouchableOpacity onPress={()=>{props.navigation.goBack()}}>
                 <Text style={{marginBottom: 40, paddingVertical: 20, paddingHorizontal: 20, fontSize: 25}}>
                     <AntDesign style={{marginRight: 10}} name="left" size={25} color="black" />
                     Home
@@ -78,9 +78,9 @@ export default function(props: any){
                 <CustomInput icon="mail" placeholder="Email Address" />
                 <CustomInput type="password" icon="lock" placeholder="Password" />
 
-                <NiceButton text="Login" color="black" size="block" style={{marginBottom: 10}}/>
+                <NiceButton text="Login" color="black" size="block" style={{marginBottom: 10, width: '100%'}}/>
 
-                <TouchableOpacity onPress={()=>{props.navigation.navigate("Registration")}}>
+                <TouchableOpacity onPress={()=>{props.navigation.push("Registration")}}>
                     <Text style={style.textButton}>Register First</Text>
                 </TouchableOpacity>
 

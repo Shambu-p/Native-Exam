@@ -8,7 +8,7 @@ export default function (props: any){
     return (
         <View style={{width: "100%"}}>
 
-            <AppBar />
+            <AppBar button={false} navigation={props.navigation} />
 
             <View style={{paddingHorizontal: 50, marginVertical: 20}}>
 
@@ -21,12 +21,12 @@ export default function (props: any){
                 <View style={mystyle.buttonContainer}>
                     <MyButton text="Login" color="black" size="md" style={{marginRight: 10}} onPress={
                         event => { 
-                            props.navigation.navigate("Login");
+                            props.navigation.push("Login");
                         }}
                     />
                     <MyButton text="Register" color="black" size="md" onPress={
                         event => { 
-                            props.navigation.navigate("Registration");
+                            props.navigation.push("Registration");
                         }
                     } />
                 </View>

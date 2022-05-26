@@ -78,7 +78,7 @@ export default function (props: any){
                 <CustomInput icon="grade" placeholder="Your Grade" />
                 <CustomInput type="password" icon="lock" placeholder="Password" />
 
-                <NiceButton text="Register" size="block" color="black"  />
+                <NiceButton text="Register" size="block" color="black" style={{width: '100%'}} />
 
             </View>
         </View>

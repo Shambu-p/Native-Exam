@@ -44,7 +44,7 @@ export default function({exam, navigate}: {exam: Exam, navigate: any}){
                 [{exam.count ?? 0}] {exam.subject} Subject Question
             </Text>
             <View style={style.buttonWrapper}>
-                <NiceButton text="View" size="sm" color="black" style={{marginRight: 10}} onPress={event => {navigate.navigate("ExamDetail")}}/>
+                <NiceButton text="View" size="sm" color="black" style={{marginRight: 10}} onPress={event => {navigate.push("ExamDetail")}}/>
                 <NiceButton text="Take" size="sm" color="black" />
             </View>
 

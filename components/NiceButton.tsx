@@ -21,7 +21,6 @@ export default function ({text, style, onPress, color, size}: {
                         paddingHorizontal: 15,
                         paddingVertical: 8,
                         backgroundColor: (color ?? "#196ffa"),
-                        ...style
                     },
 
                     buttonText: {
@@ -41,7 +40,6 @@ export default function ({text, style, onPress, color, size}: {
                         paddingVertical: 8,
                         backgroundColor: (color ?? "#196ffa"),
                         textAlign: 'center',
-                        ...style
                     },
 
                     buttonText: {
@@ -60,7 +58,6 @@ export default function ({text, style, onPress, color, size}: {
                         paddingHorizontal: 10,
                         paddingVertical: 5,
                         backgroundColor: (color ?? "#196ffa"),
-                        ...style
                     },
 
                     buttonText: {
@@ -79,7 +76,6 @@ export default function ({text, style, onPress, color, size}: {
                         paddingHorizontal: 15,
                         paddingVertical: 8,
                         backgroundColor: (color ?? "#196ffa"),
-                        ...style
                     },
 
                     buttonText: {
@@ -95,7 +91,7 @@ export default function ({text, style, onPress, color, size}: {
     }, []);
 
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity style={{width: 'max-content', ...style}} onPress={onPress}>
             <View style={myStyle.container}>
                 <Text style={myStyle.buttonText}>{text}</Text>
             </View>

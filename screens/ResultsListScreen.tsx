@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import AppBar from "../components/AppBar";
-import ExamCard from "../components/ExamCard";
+import ResultCard from "../components/ResultCard";
 
 export default function(props: any){
     
@@ -8,7 +8,7 @@ export default function(props: any){
         <View>
             <AppBar navigation={props.navigation} />
             <View style={{paddingHorizontal: 20, marginTop: 10}}>
-                <ExamCard exam={{
+                <ResultCard exam={{
                     id: 0,
                     title: "the title",
                     data: 124,
@@ -17,7 +17,7 @@ export default function(props: any){
                     count: 1
                 }} navigate={props.navigation} />
 
-                <ExamCard exam={{
+                <ResultCard exam={{
                     id: 0,
                     title: "the title",
                     data: 124,

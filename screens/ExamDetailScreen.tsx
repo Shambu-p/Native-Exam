@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import AppBar from "../components/AppBar";
 import NiceButton from "../components/NiceButton";
 
 export default function(props: any){
@@ -25,18 +26,21 @@ export default function(props: any){
     });
 
     return(
-        <View style={{width: '100%', paddingHorizontal: 20, paddingTop: 20}}>
-            <View style={style.container}>
-                <Text style={style.title}>Title</Text>
-                <Text style={style.description}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Cumque voluptatibus veritatis quas vero culpa obcaecati 
-                    quidem modi quo nostrum laborum, sequi vitae beatae odit 
-                    exercitationem! Numquam rerum doloremque odio repellat.
-                </Text>
-                <NiceButton text="Take Exam" color="black" size="block" />
+        <>
+            <AppBar navigation={props.navigation}/>
+            <View style={{width: '100%', paddingHorizontal: 20, paddingTop: 20}}>
+                <View style={style.container}>
+                    <Text style={style.title}>Title</Text>
+                    <Text style={style.description}>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Cumque voluptatibus veritatis quas vero culpa obcaecati 
+                        quidem modi quo nostrum laborum, sequi vitae beatae odit 
+                        exercitationem! Numquam rerum doloremque odio repellat.
+                    </Text>
+                    <NiceButton text="Take Exam" color="black" size="block" onPress={(event: any)=>{props.navigation.push("ExamTaking");}}/>
+                </View>
             </View>
-        </View>
+        </>
     );
 
 }
