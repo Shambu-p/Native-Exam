@@ -2,8 +2,12 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import MyButton from '../components/NiceButton';
 import AppBar from '../components/AppBar';
+import { useContext } from 'react';
+import AuthenticationContext from '../Context/AuthenticationContext';
 
 export default function (props: any){
+
+    const AuthContext = useContext(AuthenticationContext);
     
     return (
         <View style={{width: "100%"}}>
@@ -15,7 +19,7 @@ export default function (props: any){
                 <Text style={mystyle.mainText}>
                     Hello Students
                     Do you want to be tested?
-                    then you are at the right place
+                    then you are at the right place 
                 </Text>
 
                 <View style={mystyle.buttonContainer}>
