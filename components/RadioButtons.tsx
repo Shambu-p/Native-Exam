@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 export default function(props: {
     onPress: (value: number | string | boolean) => void,
     value: (string | number | boolean),
-    currentValue: (string | number | boolean),
+    currentValue: (string | number | boolean | undefined),
     text: string,
     color?: string
 }){

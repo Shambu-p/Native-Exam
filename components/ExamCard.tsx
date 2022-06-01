@@ -16,7 +16,7 @@ export default function({exam, navigate}: {exam: Exam, navigate: any}){
         cardTitle: {
             color: 'black',
             width: '100%',
-            fontSize: 35,
+            fontSize: 25,
             fontFamily: 'sans-serif',
             fontWeight: '300',
             marginBottom: 2
@@ -34,7 +34,7 @@ export default function({exam, navigate}: {exam: Exam, navigate: any}){
             flexDirection: 'row',
             justifyContent: 'flex-start'
         }
-    })
+    });
 
     return(
         <View style={style.card}>
@@ -44,8 +44,15 @@ export default function({exam, navigate}: {exam: Exam, navigate: any}){
                 [{exam.count ?? 0}] {exam.subject} Subject Question
             </Text>
             <View style={style.buttonWrapper}>
-                <NiceButton text="View" size="sm" color="black" style={{marginRight: 10}} onPress={event => {navigate.push("ExamDetail")}}/>
-                <NiceButton text="Take" size="sm" color="black" />
+                <NiceButton 
+                    text="Take" 
+                    size="sm" 
+                    color="black" 
+                    style={{marginRight: 10}} 
+                    onPress={event => {
+                        navigate.push("ExamDetail", {exam_id: exam.id});
+                    }}
+                />
             </View>
 
         </View>

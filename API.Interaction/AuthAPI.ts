@@ -49,7 +49,7 @@ export async function information(token: string): Promise<{status: boolean, data
 
     try{
 
-        let response = await Request("post", "/Auth/authorization", {token: token});
+        let response = await Request("get", `/Auth/authorization/${token}`);
 
         return {
             status: true,

@@ -20,6 +20,7 @@ import {information} from './API.Interaction/AuthAPI';
 // import MMKVStorage, { useMMKVStorage } from "react-native-mmkv-storage";
 import * as cookies from './cookies';
 import AuthenticationContext from './Context/AuthenticationContext';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 export default function myPage(){
 
@@ -39,14 +40,18 @@ export default function myPage(){
 
     // const [token, setToken] = useMMKVStorage("token", storage, "");
     const [token, setToken] = useState<any>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         
-        setToken(cookies.get("logged_user"));
+        let tk = cookies.get("logged_user");
+        setToken(tk);
+
+        // console.log(tk);
 
         let checkAuth = async () => {
             
-            if(token){
+            if(!tk){
 
                 setAuth({
                     isLoggedIn: false,
@@ -56,7 +61,7 @@ export default function myPage(){
 
             }
 
-            let response = await information(token);
+            let response = await information(tk);
 
             setAuth({
                 isLoggedIn: response.status,
@@ -67,10 +72,14 @@ export default function myPage(){
 
         checkAuth();
 
-    }, []);
+    }, [cookies.get("logged_user")]);
+
+    const changeLoading = (loading: boolean) => {
+        setLoading(loading);
+    }
 
     return (
-        <AuthenticationContext.Provider value={{auth, setAuth, setToken, token}}>
+        <AuthenticationContext.Provider value={{auth, setAuth, setToken, token, changeLoading}}>
 
             <ScrollView style={{
                     flex: 1, 
@@ -87,17 +96,25 @@ export default function myPage(){
                         {!auth.isLoggedIn ? (<Stack.Screen name="Login" component={LoginScreen} />) : (<></>)}
                         {!auth.isLoggedIn ? (<Stack.Screen name="Registration" component={RegistrationScreen} />) : (<></>)}
 
+                        {auth.isLoggedIn ? (<Stack.Screen name="Menu" component={MenuScreen} />) : <></>}
                         {auth.isLoggedIn ? (<Stack.Screen name="ExamList" component={ExamListScreen} />) : <></>}
                         {auth.isLoggedIn ? (<Stack.Screen name="ExamDetail" component={ExamDetailScreen} />) : <></>}
                         {auth.isLoggedIn ? (<Stack.Screen name="ExamTaking" component={ExamTakingScreen} />) : <></>}
                         {auth.isLoggedIn ? (<Stack.Screen name="ResultList" component={ResultsListScreen} />) : <></>}
                         {auth.isLoggedIn ? (<Stack.Screen name="ResultDetail" component={ResultDetailScreen} />) : <></>}
-                        {auth.isLoggedIn ? (<Stack.Screen name="Menu" component={MenuScreen} />) : <></>}
                         {auth.isLoggedIn ? (<Stack.Screen name="Account" component={AccountScreen} />) : <></>}
                         
                     </Stack.Navigator>
                 </NavigationContainer>
 
+                {loading ? (<Spinner 
+                    //visibility of Overlay Loading Spinner
+                    visible={true}
+                    //Text with the Spinner
+                    // textContent={'Loading...'}
+                    //Text style of the Spinner Text
+                    textStyle={{color: '#FFF'}}
+                />): ""}
             </ScrollView>
 
         </AuthenticationContext.Provider>

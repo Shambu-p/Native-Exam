@@ -1,48 +1,14 @@
+import { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function(){
 
-    const style = StyleSheet.create({
-        card: {
-            backgroundColor: 'white',
-            width: '100%',
-            height: 'auto',
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 8,
-        },
-        title: {
-            fontSize: 30,
-            width: '100%',
-            marginBottom: 15,
-            fontFamily: 'sans-serif',
-            fontWeight: '400'
-        },
-        correctChoice: {
-            color: 'white',
-            backgroundColor: 'green',
-            fontSize: 20,
-            fontWeight: 'bold',
-            fontFamily: 'sans-serif',
-            marginBottom: 10,
-            paddingLeft: 10
-        },
-        incorrectChoice: {
-            color: 'white',
-            backgroundColor: 'red',
-            fontSize: 20,
-            fontWeight: 'bold',
-            fontFamily: 'sans-serif',
-            marginBottom: 10,
-            paddingLeft: 10
-        },
-        choice: {
-            fontSize: 20,
-            fontFamily: 'sans-serif',
-            marginBottom: 10,
-            paddingLeft: 10
-        }
-    });
+    useEffect(() => {
+        const getQuestion = () => {
+
+        };
+        
+    }, []);
 
     return (
         <View style={style.card}>
@@ -56,3 +22,45 @@ export default function(){
         </View>
     );
 }
+
+const style = StyleSheet.create({
+    card: {
+        backgroundColor: 'white',
+        width: '100%',
+        height: 'auto',
+        padding: 10,
+        marginBottom: 10,
+        borderRadius: 8,
+    },
+    title: {
+        fontSize: 30,
+        width: '100%',
+        marginBottom: 15,
+        fontFamily: 'sans-serif',
+        fontWeight: '400'
+    },
+    correctChoice: {
+        color: 'white',
+        backgroundColor: 'green',
+        fontSize: 20,
+        fontWeight: 'bold',
+        fontFamily: 'sans-serif',
+        marginBottom: 10,
+        paddingLeft: 10
+    },
+    incorrectChoice: {
+        color: 'white',
+        backgroundColor: 'red',
+        fontSize: 20,
+        fontWeight: 'bold',
+        fontFamily: 'sans-serif',
+        marginBottom: 10,
+        paddingLeft: 10
+    },
+    choice: {
+        fontSize: 20,
+        fontFamily: 'sans-serif',
+        marginBottom: 10,
+        paddingLeft: 10
+    }
+});
